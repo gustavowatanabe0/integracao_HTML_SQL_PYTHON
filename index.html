@@ -25,6 +25,25 @@
 
         <button type="submit">Cadastrar</button>
     </form>
+        <h2>Lista de Clientes</h2>
+        <table>
+            <thead>
+                <th>CPF</th>
+                <th>Primeiro Nome</th>
+                <th>Sobrenome</th>
+                <th>Idade</th>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                    <tr>
+                        <td>{{cliente.CPF}}</td>
+                        <td>{{cliente.PRIMEIRO_NOME}}</td>
+                        <td>{{cliente.SOBRENOME}}</td>
+                        <td>{{cliente.IDADE}}</td>
+                    </tr>
+                {%endfor%}
+            </tbody>
+        </table>
 </body>
 
 </html>
