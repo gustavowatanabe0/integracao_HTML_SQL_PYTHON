@@ -17,7 +17,21 @@ db_config = {
 # Criando a rota para acessar o arquivo HTML
 @app.route('/')
 def index():
-    return render_template('index.html')
+    try:
+        #Cria conexão com MySQL e permite adicionar comandos SQL
+        conectar = mysql.connector.connect(**db_config)
+        cursor = conectar.cursor(dictionary=True)
+
+        #Seleção da tabela
+        cursor.execute("SELECT CPF,PRIMEIRO_NOME,SOBRENOME,IDADE FROM cliente")
+        lista_clientes = cursor.fetchall()
+
+        cursor.close()
+        conectar.close()
+        return render_template('index.html',clientes=lista_clientes)
+    
+    except mysql.connector.Error as err:
+        return f"Erro ao carregar a tabela: {err}"
 
 # Criando a rota para acessar o formulário
 @app.route('/cadastrar', methods=['POST'])
@@ -49,4 +63,3 @@ def cadastrar():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
