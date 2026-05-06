@@ -1,7 +1,7 @@
 # import do flask para criação do servidor
 # render_template para criar uma "ponte" com html
 # request para capturar dados digitados
-from flask import Flask, render_template, request
+from flask import Flask, render_template, redirect, url_for, request
 import mysql.connector
 
 # "Ajuda" o Flask a localizar o caminhos dos arquivos
@@ -18,11 +18,11 @@ db_config = {
 @app.route('/')
 def index():
     try:
-        #Cria conexão com MySQL e permite adicionar comandos SQL
+        # Cria conexão com MySQL e permite adicionar comandos SQL
         conectar = mysql.connector.connect(**db_config)
         cursor = conectar.cursor(dictionary=True)
 
-        #Seleção da tabela
+        # Seleção da tabela
         cursor.execute("SELECT CPF,PRIMEIRO_NOME,SOBRENOME,IDADE FROM cliente")
         lista_clientes = cursor.fetchall()
 
@@ -60,6 +60,27 @@ def cadastrar():
             
     except mysql.connector.Error as err:
         return f"Erro ao gravar no banco: {err}"
+
+# Criando a rota para exclusão
+@app.route('/excluir/<cpf>')
+def excluir(cpf):
+    try:
+        # Verificando conexão com MySQL
+        conectar = mysql.connector.connect(**db_config)
+        # Variável que permite a escrever SQL
+        cursor = conectar.cursor()
+        # Comando SQL para exclusão de valores
+        cursor.execute("DELETE FROM cliente WHERE CPF = %s", [cpf])
+
+        # Atualiza as alterações e fecha as conexões
+        conectar.commit()
+        cursor.close()
+        conectar.close()
+
+        return redirect(url_for('index'))
+    
+    except mysql.connector.Error as err:
+        return f"Erro ao excluir: {err}"
 
 if __name__ == '__main__':
     app.run(debug=True)
