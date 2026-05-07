@@ -1,0 +1,84 @@
+/* Configurações gerais do corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define uma letra mais limpa */
+    background-color: #f4f4f4;    /* Cor de fundo cinza bem clarinho */
+    margin: 20px;                 /* Afasta o conteúdo das bordas da tela */
+}
+
+/* Estilização dos títulos */
+h1, h2 {
+    color: #333;                  /* Cor do texto um pouco mais suave que o preto */
+    text-align: center;           /* Centraliza os títulos */
+}
+
+/* Estilização do formulário */
+form {
+    background-color: white;      /* Fundo branco para o formulário */
+    padding: 20px;                /* Espaço interno entre o conteúdo e a borda */
+    border: 1px solid #ccc;       /* Uma borda fina cinza */
+    max-width: 400px;             /* Largura máxima para não esticar muito */
+    margin: 0 auto;               /* Centraliza o formulário na tela */
+}
+
+/* Faz com que cada label (nome do campo) fique em uma linha própria */
+label {
+    display: block;               /* Força o label a ocupar a linha toda */
+    margin-top: 10px;             /* Espaço acima do nome do campo */
+    font-weight: bold;            /* Deixa o texto em negrito */
+}
+
+/* Estilização das caixas de entrada (input) */
+input {
+    width: 100%;                  /* Faz o campo ocupar toda a largura do formulário */
+    padding: 8px;                 /* Deixa o campo mais "gordinho" por dentro */
+    margin-top: 5px;              /* Espaço entre o label e o input */
+    box-sizing: border-box;       /* Garante que o padding não aumente o tamanho final do campo */
+}
+
+/* Estilização do botão de cadastrar */
+button {
+    width: 100%;                  /* Botão ocupa a largura total */
+    background-color: #28a745;    /* Cor de fundo verde */
+    color: white;                 /* Cor da letra branca */
+    padding: 10px;                /* Espaço interno */
+    border: none;                 /* Remove a borda padrão */
+    margin-top: 20px;             /* Espaço acima do botão */
+    cursor: pointer;              /* Muda a seta do mouse para a "mãozinha" */
+}
+
+/* Muda a cor do botão quando passamos o mouse por cima */
+button:hover {
+    background-color: #218838;
+}
+
+/* Estilização da tabela de produtos */
+table {
+    width: 100%;                  /* Tabela ocupa toda a largura disponível */
+    border-collapse: collapse;    /* Gruda as bordas das células uma na outra */
+    margin-top: 20px;             /* Espaço acima da tabela */
+    background-color: white;
+}
+
+/* Estilização das células (cabeçalho e corpo) */
+th, td {
+    border: 1px solid #ddd;       /* Borda fina em volta de cada célula */
+    padding: 12px;                /* Espaço interno para o texto não grudar na borda */
+    text-align: left;             /* Alinha o texto à esquerda */
+}
+
+/* Cor de fundo para o cabeçalho da tabela */
+th {
+    background-color: #f2f2f2;
+}
+
+/* Estilização do link de Excluir */
+a {
+    color: red;                   /* Cor vermelha para indicar atenção */
+    text-decoration: none;        /* Remove o sublinhado padrão do link */
+    font-weight: bold;
+}
+
+/* Muda o link quando passa o mouse */
+a:hover {
+    text-decoration: underline;   /* Adiciona o sublinhado apenas ao passar o mouse */
+}
