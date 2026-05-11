@@ -1,84 +1,122 @@
-/* Configurações gerais do corpo da página */
+/* 1. CONFIGURAÇÕES GERAIS */
 body {
-    font-family: Arial, sans-serif; /* Define uma letra mais limpa */
-    background-color: #f4f4f4;    /* Cor de fundo cinza bem clarinho */
-    margin: 20px;                 /* Afasta o conteúdo das bordas da tela */
+    /* 'Inter' e 'system-ui' dão uma aparência de aplicativo moderno */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f8fafc;    /* Um cinza levemente azulado, menos cansativo */
+    color: #1e293b;               /* Azul marinho quase preto para melhor leitura */
+    margin: 0;
+    padding: 40px 20px;           /* Espaço grande em cima/baixo e médio nas laterais */
+    line-height: 1.6;             /* Aumenta o espaço entre linhas de texto */
 }
 
-/* Estilização dos títulos */
+/* 2. TÍTULOS */
 h1, h2 {
-    color: #333;                  /* Cor do texto um pouco mais suave que o preto */
-    text-align: center;           /* Centraliza os títulos */
+    color: #0f172a;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: -0.5px;       /* Aproxima as letras, estilo design premium */
 }
 
-/* Estilização do formulário */
+/* 3. O FORMULÁRIO (BOX MODEL) */
 form {
-    background-color: white;      /* Fundo branco para o formulário */
-    padding: 20px;                /* Espaço interno entre o conteúdo e a borda */
-    border: 1px solid #ccc;       /* Uma borda fina cinza */
-    max-width: 400px;             /* Largura máxima para não esticar muito */
-    margin: 0 auto;               /* Centraliza o formulário na tela */
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 12px;          /* Bordas arredondadas dão aspecto amigável */
+    max-width: 450px;
+    margin: 0 auto 40px auto;     /* Centraliza e dá espaço para o que vier abaixo */
+    
+    /* Box-shadow cria uma sombra suave para o formulário parecer "flutuar" */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-/* Faz com que cada label (nome do campo) fique em uma linha própria */
+/* 4. LABELS (NOMES DOS CAMPOS) */
 label {
-    display: block;               /* Força o label a ocupar a linha toda */
-    margin-top: 10px;             /* Espaço acima do nome do campo */
-    font-weight: bold;            /* Deixa o texto em negrito */
+    display: block;
+    margin-bottom: 8px;           /* Espaço entre o nome e a caixa de digitação */
+    font-size: 14px;              /* Um pouco menor para hierarquia visual */
+    font-weight: 600;             /* Semi-negrito */
+    color: #475569;
 }
 
-/* Estilização das caixas de entrada (input) */
+/* 5. INPUTS (CAIXAS DE ENTRADA) */
 input {
-    width: 100%;                  /* Faz o campo ocupar toda a largura do formulário */
-    padding: 8px;                 /* Deixa o campo mais "gordinho" por dentro */
-    margin-top: 5px;              /* Espaço entre o label e o input */
-    box-sizing: border-box;       /* Garante que o padding não aumente o tamanho final do campo */
+    width: 100%;
+    padding: 12px;                /* Mais espaço interno para o texto "respirar" */
+    margin-bottom: 20px;          /* Espaço para o próximo campo */
+    border: 1px solid #cbd5e1;    /* Borda sutil */
+    border-radius: 8px;           /* Arredondamento combinando com o formulário */
+    font-size: 16px;              /* Tamanho padrão confortável */
+    transition: border-color 0.2s; /* Suaviza a troca de cor ao clicar */
+    box-sizing: border-box;       /* Essencial: o padding não "empurra" o input para fora */
 }
 
-/* Estilização do botão de cadastrar */
+/* Efeito ao clicar na caixa de entrada */
+input:focus {
+    outline: none;                /* Remove a borda padrão do navegador */
+    border-color: #3b82f6;        /* Destaca o campo com azul ao clicar */
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); /* Cria um brilho azul em volta */
+}
+
+/* 6. BOTÃO */
 button {
-    width: 100%;                  /* Botão ocupa a largura total */
-    background-color: #28a745;    /* Cor de fundo verde */
-    color: white;                 /* Cor da letra branca */
-    padding: 10px;                /* Espaço interno */
-    border: none;                 /* Remove a borda padrão */
-    margin-top: 20px;             /* Espaço acima do botão */
-    cursor: pointer;              /* Muda a seta do mouse para a "mãozinha" */
+    width: 100%;
+    background-color: #2563eb;    /* Azul vibrante moderno */
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease; /* Faz a cor mudar suavemente */
 }
 
-/* Muda a cor do botão quando passamos o mouse por cima */
+/* Efeito ao passar o mouse no botão */
 button:hover {
-    background-color: #218838;
+    background-color: #1d4ed8;    /* Escurece levemente o azul */
 }
 
-/* Estilização da tabela de produtos */
+/* 7. TABELA */
 table {
-    width: 100%;                  /* Tabela ocupa toda a largura disponível */
-    border-collapse: collapse;    /* Gruda as bordas das células uma na outra */
-    margin-top: 20px;             /* Espaço acima da tabela */
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
     background-color: white;
+    border-collapse: separate;    /* Diferente de 'collapse', permite arredondar bordas */
+    border-spacing: 0;            /* Remove vãos entre as células */
+    border-radius: 12px;
+    overflow: hidden;             /* Garante que o fundo da tabela respeite o arredondamento */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Estilização das células (cabeçalho e corpo) */
 th, td {
-    border: 1px solid #ddd;       /* Borda fina em volta de cada célula */
-    padding: 12px;                /* Espaço interno para o texto não grudar na borda */
-    text-align: left;             /* Alinha o texto à esquerda */
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9; /* Linhas divisórias horizontais apenas */
 }
 
-/* Cor de fundo para o cabeçalho da tabela */
+/* Estilo do cabeçalho da tabela */
 th {
-    background-color: #f2f2f2;
+    background-color: #f8fafc;
+    color: #64748b;
+    font-size: 12px;
+    text-transform: uppercase;    /* Letras maiúsculas para o cabeçalho */
+    letter-spacing: 0.05em;
 }
 
-/* Estilização do link de Excluir */
+/* 8. LINK DE EXCLUIR */
 a {
-    color: red;                   /* Cor vermelha para indicar atenção */
-    text-decoration: none;        /* Remove o sublinhado padrão do link */
-    font-weight: bold;
+    color: #ef4444;               /* Vermelho vibrante */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.2s;
 }
 
-/* Muda o link quando passa o mouse */
+/* Efeito de botão no link ao passar o mouse */
 a:hover {
-    text-decoration: underline;   /* Adiciona o sublinhado apenas ao passar o mouse */
+    background-color: #fef2f2;    /* Fundo vermelhinho bem claro */
+    text-decoration: none;
 }
