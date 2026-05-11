@@ -48,3 +48,22 @@ def cadastrar():
 
     except mysql.connector.Error as err:
         return f"Erro ao gravar no banco: {err}"
+    
+@app.route('/excluir/<id>')
+def excluir(id):
+    try:
+        conectar = mysql.connector.connect(**db_config)
+        cursor = conectar.cursor()
+        cursor.execute("DELETE FROM produto WHERE ID = %s", [id])
+
+        conectar.commit()
+        cursor.close()
+        conectar.close()
+
+        return redirect(url_for('index'))
+    
+    except mysql.connector.Error as err:
+        return f"Erro ao excluir: {err}"
+    
+if __name__ == '__main__':
+    app.run(debug=True)
