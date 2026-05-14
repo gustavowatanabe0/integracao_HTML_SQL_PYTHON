@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de produtos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Cadastro de produtos</h1>
+
+    <!-- NEW: Bloco Jinja2 para capturar e exibir as Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-container">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <form action="/cadastrar" method="POST">
+        <label for="c_id">ID</label>
+        <input type="text" name="id" id="c_id" required>
+
+        <label for="c_nome">Nome</label>
+        <input type="text" name="nome" id="c_nome" required>
+
+        <label for="c_tamanho">Tamanho</label>
+        <input type="text" name="tamanho" id="c_tamanho" required>
+
+        <label for="c_categoria">Categoria</label>
+        <input type="text" name="categoria" id="c_categoria" required>
+
+        <label for="c_quantidade">Quantidade</label>
+        <input type="number" name="quantidade" step="1" id="c_quantidade" required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    <h2>Lista de produtos</h2>
+    <table>
+        <thead>
+            <!-- CORREÇÃO: Envolver as tags TH dentro de uma tag TR (linha de cabeçalho) -->
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Tamanho</th>
+                <th>Categoria</th>
+                <th>Quantidade</th>
+                <th>Ações</th> <!-- NEW: Coluna adicionada para alinhar com o botão de excluir -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td>{{produto.ID}}</td>
+                <td>{{produto.NOME}}</td>
+                <td>{{produto.TAMANHO}}</td>
+                <td>{{produto.CATEGORIA}}</td>
+                <td>{{produto.QUANTIDADE}}</td>
+                <!-- CORREÇÃO: O botão de excluir agora fica dentro da linha correspondente (TR) -->
+                <td>
+                    <a href="{{url_for('excluir', id=produto.ID)}}"
+                        onclick="return confirm('Deseja remover este produto?')">
+                        Excluir
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>

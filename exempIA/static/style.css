@@ -1,0 +1,150 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f7f4ef;
+    color: #4a3e3d;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* --- TÍTULOS --- */
+h1, h2 {
+    color: #8c6239;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    margin-top: 40px;
+    border-bottom: 2px solid #e6dfd5;
+    padding-bottom: 5px;
+}
+
+/* --- FORMULÁRIO --- */
+form {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(74, 62, 61, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #6e5a58;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #dcd4c9;
+    border-radius: 6px;
+    background-color: #faf8f5;
+    color: #4a3e3d;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #8c6239;
+    background-color: #ffffff;
+}
+
+button {
+    background-color: #8c6239;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #734f2d;
+}
+
+/* --- TABELA DE PRODUTOS --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(74, 62, 61, 0.05);
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+}
+
+thead {
+    background-color: #e6dfd5;
+    color: #4a3e3d;
+}
+
+th {
+    font-weight: 600;
+}
+
+tbody tr {
+    border-bottom: 1px solid #f2ede4;
+}
+
+tbody tr:hover {
+    background-color: #faf8f5;
+}
+
+/* --- LINKS E BOTÕES DE AÇÃO --- */
+a {
+    color: #c05c46;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- MENSAGENS FLASH (SISTEMA DE ALERTAS) --- */
+.flash-container {
+    margin-bottom: 20px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.alert-success {
+    background-color: #e2ece9;
+    color: #2d5a27;
+    border: 1px solid #cbdcd6;
+}
+
+.alert-warning {
+    background-color: #f7eade;
+    color: #8c5823;
+    border: 1px solid #eddcca;
+}
+
+.alert-danger {
+    background-color: #f5e4e4;
+    color: #a34747;
+    border: 1px solid #ebd0d0;
+}
